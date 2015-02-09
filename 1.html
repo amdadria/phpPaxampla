@@ -7,22 +7,7 @@
   <body>
     <script type="text/javascript">
 
-    //ejercicio 1 lo e echo lo que pedía el dos
-    function c_rectangulo(cLado1, cLado2){
-        this.lado1=cLado1
-        this.lado2=cLado2
-        this.area=f_area
-        this.perimetro=f_perimetro
-      }
-
-    var recta1=new c_rectangulo(2,3)
-
-    function f_area(){
-    	return this.lado1*this.lado2
-    }
-    function f_perimetro(){
-      	return (this.lado1*2)+(this.lado2*2)
-    }
+    
 
     document.write("Lado1: "+recta1.lado1+"<br/>Lado2: "+recta1.lado2+"<br/>Area: "+recta1.area()+"<br/>Perimetro: "+recta1.perimetro())
 
