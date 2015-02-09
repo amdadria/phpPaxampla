@@ -1,0 +1,66 @@
+<!-- Adrià  Mondéjar Daza-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    //ejercicio 1 lo e echo lo que pedía el dos
+    function c_CuentaBanco(cNombre, cBalance){
+        this.nombre=cNombre
+        this.balance=cBalance
+        this.incrBalancVar=f_incrBalancVar
+        this.decrBalanc=f_decrBalanc10
+        this.decrBalancVar=f_decrBalancVar
+      }
+
+    c_CuentaBanco.prototype.mostrarBalanc=function(){
+        document.write("Compte:"+this.nombre+"--------------> Balanç: "+this.balance)
+    }
+
+    c_CuentaBanco.prototype.incrBalanc10=function(){
+        this.balance +=10
+        document.write("Compte: " +this.nombre+" Incr.10: 10")
+    }
+
+    function f_incrBalancVar(incre){
+        var pass=prompt("Introduce la contraseña","")
+        if (pass=="666"){
+            this.balance += incre
+            document.write("Compte: " +this.nombre+" Incr."+incre+": "+incre)
+        }else{
+            alert("contraseña incorrecta")
+        }
+    }
+    function f_decrBalanc10(){
+        this.balance -=10
+        document.write("Compte: " +this.nombre+" Decr.10: 10")
+    }
+    function f_decrBalancVar(incre){
+        var pass=prompt("Introduce la contraseña","")
+        if (pass=="777"){
+            this.balance -= incre
+            document.write("Compte: " +this.nombre+" Decr."+incre+": "+incre)
+        }else{
+            alert("contraseña incorrecta")
+        }
+
+    }
+    var banco1=new c_CuentaBanco("Paco",50)
+   //banco1.mostrarBanco()
+   banco1.mostrarBalanc()    
+   document.write("<br/>")
+   banco1.incrBalanc10()
+   document.write("<br/>")
+   banco1.incrBalancVar(20)
+   document.write("<br/>")
+   banco1.decrBalanc()
+   document.write("<br/>")
+   banco1.decrBalancVar(10)
+   document.write("<br/>")
+   banco1.mostrarBalanc()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!-- Adrià  Mondéjar Daza-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    //constructores
+    function Coche (inom, imarca, imodel, iany)
+    {
+      this.nom=inom;
+      this.marca=imarca;
+      this.model= imodel;
+      this.any=iany;
+      this.dObj=dObj;
+    }
+
+    var seat=new Coche('seat600', 'Seat','600',1970)
+    var r4L=new Coche('r4L','Renault', '4L',1970)
+    var ibiza=new Coche('Ibiza','Seat','Ibiza',1990)
+    var c2CV=new Coche('c2CV','Citroën', '2CV',1970)
+    var toledo=new Coche('toledo','Seat','Toledo',1999) 
+    
+    function dObj() {
+        for (var prop in this) {
+          if(typeof this[prop] == "number" || typeof this[prop] == "string" ) {
+              document.write(" <b>",prop, "</b>: ", this[prop], " " , "(",typeof this[prop],")");
+          }else if(typeof this[prop] == "function") {
+
+          } else {
+              document.write(" <b>",prop, "</b>: ", this[prop].classNamepro(), " " , "(",typeof this[prop],")");
+          }
+          document.write("<br>");
+        }
+    }
+    seat.dObj();
+    seat600={marca:'Seat',model:'600',any:1970}
+    r4L={marca:'Renault',model:'4L',any:1970}
+
+    document.write()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!-- Adrià  Mondéjar Daza-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    //ejercicio 1 lo e echo lo que pedía el dos
+    function c_rectangulo(cLado1, cLado2){
+        this.lado1=cLado1
+        this.lado2=cLado2
+        this.area=f_area
+        this.perimetro=f_perimetro
+      }
+
+    var recta1=new c_rectangulo(2,3)
+
+    function f_area(){
+    	return this.lado1*this.lado2
+    }
+    function f_perimetro(){
+      	return (this.lado1*2)+(this.lado2*2)
+    }
+
+    document.write("Lado1: "+recta1.lado1+"<br/>Lado2: "+recta1.lado2+"<br/>Area: "+recta1.area()+"<br/>Perimetro: "+recta1.perimetro())
+
+    function c_rectangulo3(){}
+    c_rectangulo3.prototype.lado1=10
+    c_rectangulo3.prototype.lado2=20
+    var rectangulo3=new c_rectangulo3
+    document.write("<br/>Lado1: "+rectangulo3.lado1+"<br/>Lado2: "+rectangulo3.lado2)
+    rectangulo3.lado1=4
+    rectangulo3.lado2=5
+    document.write("<br/>Lado1: "+rectangulo3.lado1+"<br/>Lado2: "+rectangulo3.lado2)
+    </script>
+  </body>
+</html>

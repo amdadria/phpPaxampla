@@ -1,0 +1,58 @@
+<!-- Adrià  Mondéjar Daza-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var libro1 ={titol:"Titulo1",autor:"Autor1",paginas:300,pag_act:3}
+      /*libro1.titol="titulo1"
+      libro1.autor="Autor1"
+      libro1.paginas=300
+      libro1.pag_act=3*/
+      document.write("Titulo: "+libro1.titol+"<br/>Autor: "+libro1.autor+"<br/>Páginas: "+libro1.paginas+"<br/>Página Actual: "+libro1.pag_act);
+
+      //contructor
+      function c_libro(cTitulo, cAutor, cPaginas, cPagAct){
+        this.titol=cTitulo
+        this.autor=cAutor
+        this.paginas=cPaginas
+        this.pag_act=cPagAct
+      }
+
+      var libro2=new c_libro("Titulo2","Autor2",500,4)
+
+      document.write("<br/>Titulo: "+libro2.titol+"<br/>Autor: "+libro2.autor+"<br/>Páginas: "+libro2.paginas+"<br/>Página Actual: "+libro2.pag_act);
+
+      //añado propiedad para libros instanciados por contructor
+      c_libro.prototype.pes=6
+
+      document.write("<br/>Peso libro1: "+libro1.pes)
+      document.write("<br/>Peso libro2: "+libro2.pes)
+
+      //añado propiedad libro ajeno a constructor
+      libro1.caducidad=2
+
+      document.write("<br/>Caducidad libro1: "+libro1.caducidad)
+      document.write("<br/>Caducidad libro2: "+libro2.caducidad)
+
+      //añado funcion pasar pagina e implemento en los dos metodos
+      function f_passar_pag(){
+        this.pag_act++
+        if (this.pag_act>this.paginas) { this.pag_act=0};
+      }
+
+      c_libro.prototype.pas_pag=f_passar_pag
+      libro1.pas_pag1=f_passar_pag
+
+      document.write("<br/>Página actual libro1: "+libro1.pag_act)
+      libro1.pas_pag1()
+      document.write("<br/>Página llamando al método: "+libro1.pag_act)
+      document.write("<br/>Página actual libro2: "+libro2.pag_act)
+      libro2.pas_pag()
+      document.write("<br/>Página llamando al método: "+libro2.pag_act)
+    </script>
+  </body>
+</html>

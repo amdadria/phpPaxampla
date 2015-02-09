@@ -1,0 +1,83 @@
+<!-- Adrià  Mondéjar Daza-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function General(){
+      this.garantia=1;
+      this.dObj=dObj;
+    }
+
+    //constructores
+    function Fabricant (inom, icomercial, iciutat, itelf)
+    {
+      General.call(this)
+      this.nom=inom;
+      this.comercial=icomercial;
+      this.ciutat= iciutat;
+      this.telf=itelf;
+      this.telfEmerg= 112;
+      this.classNamepro = function () {return this.nom};
+    }
+    function Distribuidor (inom,iciutat,itelf,ifabricant)
+    {
+      General.call(this)
+      this.nom = inom;
+      this.ciutat=iciutat;
+      this.telf=itelf;
+      this.fabricant=ifabricant;
+      this.classNamepro = function () {return this.nom};
+    }
+    function Equip (inom, imodel, ifabricant, idistribuidor, ipotencia)
+    { 
+      General.call(this)
+      this.nom = inom;
+      this.model = imodel;
+      this.fabricant = ifabricant;
+      this.distribuidor = idistribuidor;
+      this.potencia = ipotencia;
+      this.classNamepro = function () {return this.nom};
+    } 
+
+    Fabricant.prototype=new General()
+    Distribuidor.prototype=new General()
+    Equip.prototype=new General()
+
+    //Fabricants:
+    var fagor=new Fabricant('Fagor','ComercialF', 'Sant Sebastia', '902105011')
+    var zanussi=new Fabricant('Zanussi','ComercialZ', 'Saragossa', '902105111')
+    var balay=new Fabricant('Balay','ComercialB','Sevilla','902105211')
+    //Distribuïdors:
+    var distr1=new Distribuidor('Distrib1','Barcelona','931234567', fagor)
+    var distr2=new Distribuidor('Distrib2','Barcelona','931234568', fagor)
+    var distr3=new Distribuidor('Distrib3', 'Girona', '972123456',zanussi)
+    //Equip:
+    var equip1=new Equip('rentadora', 'A24', fagor, distr1, 45)
+    var equip2=new Equip('planxa', 'E4',balay , distr1, 50)
+    var equip3=new Equip('aspiradora', 'B48', zanussi, distr1, 30)
+    var equip4=new Equip('batedora', 'Z10', fagor, distr1, 5)
+    
+    function dObj() {
+        for (var prop in this) {
+          if(typeof this[prop] == "number" || typeof this[prop] == "string" ) {
+              document.write(" <b>",prop, "</b>: ", this[prop], " " , "(",typeof this[prop],")");
+          }else if(typeof this[prop] == "function") {
+
+          } else {
+              document.write(" <b>",prop, "</b>: ", this[prop].classNamepro(), " " , "(",typeof this[prop],")");
+          }
+          document.write("<br>");
+        }
+    }
+
+    document.write(equip1.garantia)
+    document.write("<br>");
+    equip1.dObj();
+
+    </script>
+  </body>
+</html>
